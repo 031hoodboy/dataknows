@@ -2,7 +2,59 @@ import React from "react";
 import styled from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
+
 const Home = () => {
+  const datas = [
+    {
+      id: "1",
+      icon: "happyicon",
+      title: "라라어린이집",
+      distance: "150m",
+      stations: [],
+    },
+    {
+      id: "2",
+      icon: "subwayicon",
+      title: "공덕역",
+      distance: "200m",
+      stations: ["line5", "line6", "airportstation", "gcl"],
+    },
+    {
+      id: "3",
+      icon: "subwayicon",
+      title: "시청역",
+      distance: "200m",
+      stations: ["line5"],
+    },
+    {
+      id: "4",
+      icon: "subwayicon",
+      title: "공덕역",
+      distance: "200m",
+      stations: ["line5", "line6", "airportstation", "gcl"],
+    },
+    {
+      id: "5",
+      icon: "shopicon",
+      title: "롯데백화점 본점",
+      distance: "500m",
+      stations: [],
+    },
+    {
+      id: "6",
+      icon: "shopicon",
+      title: "홈플러스신논현점",
+      distance: "640m",
+      stations: [],
+    },
+    {
+      id: "7",
+      icon: "happyicon",
+      title: "푸른꿈나무유치원",
+      distance: "150m",
+      stations: [],
+    },
+  ];
   return (
     <PageBlock>
       <SafeArea />
@@ -41,6 +93,27 @@ const Home = () => {
           <NearNav>교육</NearNav>
           <NearNav>생활</NearNav>
         </NearNavigator>
+        <NearList>
+          {datas.map((data) => (
+            <NearLeastItem>
+              <JustifyWrapper>
+                <DataIcon src={require(`../assets/${data.icon}.png`)} />
+                <DataTitle>{data.title}</DataTitle>
+                {/* {Object.values(data.stations)} */}
+                <>
+                  {data.stations.map((station) => (
+                    <IconWrapper>
+                      <StationIcon src={require(`../assets/${station}.png`)} />
+                    </IconWrapper>
+                  ))}
+                </>
+              </JustifyWrapper>
+              <JustifyWrapper>
+                <DataDistance>{data.distance}</DataDistance>
+              </JustifyWrapper>
+            </NearLeastItem>
+          ))}
+        </NearList>
         <SeeMoreButton>
           더보기
           <BottomArrow src={require(`../assets/bottomarrow.png`)} />
@@ -152,12 +225,6 @@ const NearWrapper = styled(ResidenceScoreWrapper)`
   align-items: flex-start;
 `;
 
-const NearBlock = styled.div`
-  width: 100%;
-  background: #f2f2f2;
-  border-radius: 8px;
-`;
-
 const BlockTitle = styled.div`
   font-weight: 700;
   font-size: 18px;
@@ -188,6 +255,30 @@ const NearNav = styled.div`
   color: #333a46;
 `;
 
+const NearList = styled.div`
+  width: calc(100% - 16px);
+  margin-top: 30px;
+  padding: 0 8px;
+`;
+
+const NearLeastItem = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+  color: #6d7787;
+  margin-bottom: 20px;
+`;
+
+const DataIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+`;
+
 const SeeMoreButton = styled.div`
   width: 100%;
   display: flex;
@@ -196,12 +287,28 @@ const SeeMoreButton = styled.div`
   border: 1px solid #e9eaec;
   border-radius: 6px;
   padding: 9px 0px;
-  margin-top: 30px;
+  margin-top: 10px;
 `;
 
 const BottomArrow = styled.img`
   width: 10px;
   height: 5px;
+`;
+
+const DataTitle = styled.div`
+  margin-right: 2px;
+`;
+
+const IconWrapper = styled.div`
+  margin-left: 2px;
+`;
+const StationIcon = styled.img`
+  width: 100%;
+  height: 16px;
+`;
+
+const DataDistance = styled.div`
+  color: #000;
 `;
 
 export default Home;
