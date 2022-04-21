@@ -300,6 +300,8 @@ const DataTitle = styled.div`
 `;
 
 const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin-left: 2px;
 `;
 const StationIcon = styled.img`
