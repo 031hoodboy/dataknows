@@ -86,7 +86,6 @@ const Home = () => {
       </ResidenceSettingWrapper>
       <NearWrapper>
         <BlockTitle>1km 이내 가까운 환경</BlockTitle>
-
         <NearNavigator>
           <NearNav>전체</NearNav>
           <NearNav>교통</NearNav>

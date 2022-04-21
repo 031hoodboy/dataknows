@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const { pathname } = useLocation();
-
   return (
     <HeaderWrapper>
       <HeaderBlock>
@@ -39,8 +38,12 @@ const Header = () => {
 };
 
 const HeaderWrapper = styled.div`
+  width: 100%;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 0;
 `;
 
 const HeaderBlock = styled.div`
