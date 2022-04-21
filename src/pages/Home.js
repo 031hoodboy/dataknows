@@ -132,7 +132,7 @@ const Navigator = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #e9eaec;
-  padding: 4px 20px 10px;
+  padding: 4px 20px 0px;
 `;
 
 const Nav = styled.div`
@@ -146,6 +146,7 @@ const Nav = styled.div`
     css`
       color: #000;
       font-weight: 500;
+      padding-bottom: 10px;
       border-bottom: 2px solid #000;
     `}
 `;
