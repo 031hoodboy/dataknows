@@ -88,7 +88,9 @@ const Home = () => {
         </ResidenceSettingBlock>
       </ResidenceSettingWrapper>
       <NearWrapper>
-        <BlockTitle>1km 이내 가까운 환경</BlockTitle>
+        <BlockTitle>
+          <Bold>1km 이내</Bold> 가까운 환경
+        </BlockTitle>
         <NearNavigator>
           <NearNav selected={selected}>전체</NearNav>
           <NearNav>교통</NearNav>
@@ -123,7 +125,9 @@ const Home = () => {
       </NearWrapper>
       <Devider />
       <NearWrapper>
-        <BlockTitle>1km 이내 가까운 환경</BlockTitle>
+        <BlockTitle>
+          주변에 <Bold>교육이</Bold> 가장 많아요
+        </BlockTitle>
         <Chart3 src={require(`../assets/chart3.png`)} />
       </NearWrapper>
       <Devider />
@@ -131,6 +135,46 @@ const Home = () => {
         <SourcesTitle>데이터 출처보기</SourcesTitle>
         <Check src={require(`../assets/check.png`)} />
       </DataSourcesBlock>
+      <Devider />
+      <NearWrapper>
+        <CorrectBlock>
+          <CorrectJustifyWrapper>
+            <CorrectContent>
+              리치고는 빠르고 정확한 정보를 제공하기 위해 열심히 노력하고 있어요
+            </CorrectContent>
+            <CorrectButton>
+              정정 및 요청문의
+              <BlueArrow src={require(`../assets/bluearrow.png`)} />
+            </CorrectButton>
+          </CorrectJustifyWrapper>
+          <CorrectJustifyWrapper>
+            <MailBox src={require(`../assets/mailbox.png`)} />
+          </CorrectJustifyWrapper>
+        </CorrectBlock>
+      </NearWrapper>
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
+      <Devider />
       <Devider />
     </PageBlock>
   );
@@ -239,11 +283,14 @@ const NearWrapper = styled(ResidenceScoreWrapper)`
 `;
 
 const BlockTitle = styled.div`
-  font-weight: 700;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.4px;
   color: #2a2f37;
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
 `;
 
 const NearNavigator = styled.div`
@@ -360,6 +407,44 @@ const Check = styled.img`
   width: 10px;
   height: 5px;
   margin-left: 10px;
+`;
+
+const CorrectBlock = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+const CorrectJustifyWrapper = styled(JustifyWrapper)`
+  flex-direction: column;
+  align-items: flex-start;
+`;
+const CorrectContent = styled.div`
+  color: #333a46;
+  max-width: 211px;
+  line-break: strict;
+  word-break: keep-all;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333a46;
+`;
+
+const CorrectButton = styled.div`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 28px;
+  color: #3b82f6;
+  margin-top: 6px;
+`;
+
+const MailBox = styled.img`
+  width: 76px;
+  height: 76px;
+`;
+
+const BlueArrow = styled.img`
+  width: 4px;
+  height: 8px;
+  margin-left: 8px;
 `;
 
 export default Home;
