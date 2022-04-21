@@ -121,6 +121,17 @@ const Home = () => {
           <BottomArrow src={require(`../assets/bottomarrow.png`)} />
         </SeeMoreButton>
       </NearWrapper>
+      <Devider />
+      <NearWrapper>
+        <BlockTitle>1km 이내 가까운 환경</BlockTitle>
+        <Chart3 src={require(`../assets/chart3.png`)} />
+      </NearWrapper>
+      <Devider />
+      <DataSourcesBlock>
+        <SourcesTitle>데이터 출처보기</SourcesTitle>
+        <Check src={require(`../assets/check.png`)} />
+      </DataSourcesBlock>
+      <Devider />
     </PageBlock>
   );
 };
@@ -319,6 +330,36 @@ const StationIcon = styled.img`
 
 const DataDistance = styled.div`
   color: #000;
+`;
+
+const Devider = styled.div`
+  width: 100%;
+  height: 10px;
+  background-color: #f6f7f8;
+`;
+
+const Chart3 = styled.img`
+  width: 100%;
+  margin-top: 20px;
+`;
+
+const DataSourcesBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+`;
+
+const SourcesTitle = styled.div`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2a2f37;
+`;
+const Check = styled.img`
+  width: 10px;
+  height: 5px;
+  margin-left: 10px;
 `;
 
 export default Home;
