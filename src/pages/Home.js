@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
 
@@ -55,6 +55,9 @@ const Home = () => {
       stations: [],
     },
   ];
+
+  const selected = true;
+
   return (
     <PageBlock>
       <SafeArea />
@@ -87,7 +90,7 @@ const Home = () => {
       <NearWrapper>
         <BlockTitle>1km 이내 가까운 환경</BlockTitle>
         <NearNavigator>
-          <NearNav>전체</NearNav>
+          <NearNav selected={selected}>전체</NearNav>
           <NearNav>교통</NearNav>
           <NearNav>교육</NearNav>
           <NearNav>생활</NearNav>
@@ -245,13 +248,19 @@ const NearNavigator = styled.div`
 
 const NearNav = styled.div`
   padding: 5px 21px;
-  background-color: #fff;
-  border-radius: 100px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-weight: 500;
+  color: #8b97aa;
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #333a46;
+  ${(props) =>
+    props.selected &&
+    css`
+      background-color: #fff;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      font-weight: 500;
+      color: #333a46;
+    `}
 `;
 
 const NearList = styled.div`
