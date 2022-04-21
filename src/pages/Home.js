@@ -305,7 +305,6 @@ const IconWrapper = styled.div`
   margin-left: 2px;
 `;
 const StationIcon = styled.img`
-  width: 50%;
   height: 16px;
   object-fit: contain;
 `;
