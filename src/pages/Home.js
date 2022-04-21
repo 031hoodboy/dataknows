@@ -1,50 +1,51 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import SafeArea from "react-safe-area-component";
-import { useLocation } from "react-router-dom";
-
+import Header from "../components/Header";
 const Home = () => {
-  const { pathname } = useLocation();
   return (
     <PageBlock>
       <SafeArea />
-      <HeaderWrapper>
-        <Header>
-          <HeaderJustifyWrapper>
-            <Arrow src={require(`../assets/arrow.png`)} />
-            <LocationWrapper>
-              <LocationTopWarpper>
-                <DongName>신대방동</DongName>
-                <Evaluation>매우좋음</Evaluation>
-              </LocationTopWarpper>
-              <LocationBottompWarpper>
-                <Apartment>보라매이편한세상</Apartment>
-                <ApartmentButton
-                  src={require(`../assets/fi_chevron-down.png`)}
-                />
-              </LocationBottompWarpper>
-            </LocationWrapper>
-          </HeaderJustifyWrapper>
-          <HeaderJustifyWrapper>
-            <Sharing src={require(`../assets/share.png`)} />
-            <Star src={require(`../assets/star.png`)} />
-          </HeaderJustifyWrapper>
-        </Header>
-        <Navigator>
-          <Nav>가격</Nav>
-          <Nav>분석</Nav>
-          <Nav selected={pathname === "/"}>환경</Nav>
-          <Nav>호재</Nav>
-          <Nav>이야기</Nav>
-          <Nav>기본</Nav>
-        </Navigator>
-      </HeaderWrapper>
+      <Header />
       <ResidenceScoreWrapper>
-        <ResidenceScoreBlock></ResidenceScoreBlock>
+        <ResidenceScoreBlock>
+          <TitleWrapper>
+            거주점수
+            <Qmark src={require(`../assets/qmark.png`)} />
+          </TitleWrapper>
+          <Chart src={require(`../assets/chart.png`)} />
+        </ResidenceScoreBlock>
       </ResidenceScoreWrapper>
       <ResidenceSettingWrapper>
-        <ResidenceSettingBlock></ResidenceSettingBlock>
+        <ResidenceSettingBlock>
+          <JustifyWrapper>
+            <ScoreChart></ScoreChart>
+            <ContentWrapper>
+              <ScoreName>Y.zyyyyy님의</ScoreName>
+              <ScoreTitle>
+                <YelloSpan>거주점수</YelloSpan> 맞춤설정
+              </ScoreTitle>
+            </ContentWrapper>
+          </JustifyWrapper>
+          <JustifyWrapper>
+            <WhiteArrow src={require(`../assets/whitearrow.png`)} />
+          </JustifyWrapper>
+        </ResidenceSettingBlock>
       </ResidenceSettingWrapper>
+      <NearWrapper>
+        <BlockTitle>1km 이내 가까운 환경</BlockTitle>
+
+        <NearNavigator>
+          <NearNav>전체</NearNav>
+          <NearNav>교통</NearNav>
+          <NearNav>교육</NearNav>
+          <NearNav>생활</NearNav>
+        </NearNavigator>
+        <SeeMoreButton>
+          더보기
+          <BottomArrow src={require(`../assets/bottomarrow.png`)} />
+        </SeeMoreButton>
+      </NearWrapper>
     </PageBlock>
   );
 };
@@ -57,130 +58,150 @@ const PageBlock = styled.div`
   font-family: Noto Sans KR;
 `;
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Header = styled.div`
-  width: calc(100% - 40px);
-  padding: 10px 20px 15px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const HeaderJustifyWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Arrow = styled.img`
-  margin-right: 24px;
-  height: 12px;
-  width: 6px;
-`;
-
-const LocationWrapper = styled.div``;
-
-const LocationTopWarpper = styled.div`
-  display: flex;
-  line-height: 20px;
-  font-weight: 400;
-  font-size: 14px;
-`;
-
-const DongName = styled.div`
-  color: #333a46;
-`;
-
-const Evaluation = styled.div`
-  color: #6d7787;
-  margin-left: 6px;
-`;
-
-const LocationBottompWarpper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Apartment = styled.div`
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 28px;
-`;
-
-const ApartmentButton = styled.img`
-  width: 18px;
-  height: 18px;
-  border-radius: 100%;
-  margin-left: 6px;
-`;
-
-const Sharing = styled.img`
-  width: 35px;
-  height: 35px;
-`;
-
-const Star = styled.img`
-  width: 24px;
-  height: 24px;
-  margin-left: 15px;
-`;
-
-const Navigator = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #e9eaec;
-  padding: 4px 20px 0px;
-`;
-
-const Nav = styled.div`
-  height: 26px;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: -0.6px;
-  color: #8b97aa;
-  ${(props) =>
-    props.selected &&
-    css`
-      color: #000;
-      font-weight: 500;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #000;
-    `}
-`;
-
 const ResidenceScoreWrapper = styled.div`
-  width: 100%;
-  height: 188px;
-  background-color: #fff;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const ResidenceScoreBlock = styled.div`
-  width: calc(100% - 40px);
-  height: calc(100% - 44px);
-  margin: 20px 20px 24px 20px;
-  background: #ffffff;
+  width: 100%;
+  margin-bottom: 4px;
   box-shadow: 0px 2px 12px rgba(42, 47, 55, 0.08);
   border-radius: 8px;
+  padding: 16px 16px 21px 16px;
 `;
 
-const ResidenceSettingWrapper = styled.div`
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+  text-align: center;
+`;
+
+const Qmark = styled.img`
+  width: 14px;
+  height: 14px;
+  margin-left: 5px;
+  margin-bottom: 3px;
+`;
+
+const Chart = styled.img`
   width: 100%;
-  height: 107px;
-  background-color: #f2f2f2;
+`;
+
+const ResidenceSettingWrapper = styled(ResidenceScoreWrapper)`
+  background-color: #f6f7f8;
 `;
 
 const ResidenceSettingBlock = styled.div`
-  width: calc(100% - 40px);
-  height: calc(100% - 44px);
-  margin: 20px 15px 20px;
+  width: 100%;
   background: linear-gradient(90deg, #3b82f6 0%, #16abff 101.79%);
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px 14px 18px;
+`;
+
+const JustifyWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ScoreChart = styled.div`
+  width: 37px;
+  height: 37px;
+  border-radius: 100%;
+  border: 6px solid #ffcc15;
+`;
+
+const ContentWrapper = styled.div`
+  color: #f6f7f7;
+  letter-spacing: -0.4px;
+  margin-left: 14px;
+`;
+
+const ScoreName = styled.div`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+`;
+
+const ScoreTitle = styled.div`
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 28px;
+`;
+
+const YelloSpan = styled.span`
+  color: #ffc49a;
+`;
+
+const WhiteArrow = styled.img`
+  height: 12px;
+  width: 6px;
+`;
+
+const NearWrapper = styled(ResidenceScoreWrapper)`
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const NearBlock = styled.div`
+  width: 100%;
+  background: #f2f2f2;
+  border-radius: 8px;
+`;
+
+const BlockTitle = styled.div`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  color: #2a2f37;
+`;
+
+const NearNavigator = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #f2f3f5;
+  border-radius: 100px;
+  padding: 2px;
+  margin-top: 24px;
+  color: #8b97aa;
+`;
+
+const NearNav = styled.div`
+  padding: 5px 21px;
+  background-color: #fff;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333a46;
+`;
+
+const SeeMoreButton = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e9eaec;
+  border-radius: 6px;
+  padding: 9px 0px;
+  margin-top: 30px;
+`;
+
+const BottomArrow = styled.img`
+  width: 10px;
+  height: 5px;
 `;
 
 export default Home;
