@@ -1,47 +1,64 @@
-import React, { useRef, useEffect, useState } from "react";
-import { select, axisBottom, axisRight, scaleLinear, scaleBand } from "d3";
+import React from "react";
+import * as d3 from "d3";
+import fetchData from "./data";
+import "./styles.css";
 
-function Chart() {
-  const [data, setData] = useState([25]);
-  const svgRef = useRef();
+const margin = { top: 20, right: 20, bottom: 20, left: 80 };
 
-  useEffect(() => {
-    const svg = select(svgRef.current);
+export default function BarChart() {
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    async function getData() {
+      const d = await fetchData();
+      setData(d);
+    }
+    getData();
+  }, []);
 
-    // scale
-    const xScale = scaleBand()
-      .domain(data.map((value, index) => index))
-      .range([0, 300])
-      .padding(0.5);
+  React.useEffect(() => {
+    if (data.length > 0) {
+      const svg = d3.select("#svg-container");
+      const width = +svg.attr("width");
+      const height = +svg.attr("height");
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
 
-    const yScale = scaleLinear().domain([0, 150]).range([150, 0]);
+      const xScale = d3
+        .scaleLinear()
+        .domain([0, d3.max(data, (d) => d.score)])
+        .range([0, innerWidth]);
 
-    // axis
-    const xAxis = axisBottom(xScale).ticks(data.length);
-    svg.select(".x-axis").style("transform", "translateY(150px)").call(xAxis);
+      const yScale = d3
+        .scaleBand()
+        .domain(data.map((d) => d.country))
+        .range([0, innerHeight])
+        .padding(0.5);
 
-    const yAxis = axisRight(yScale);
-    svg.select(".y-axis").style("transform", "translateX(300px)").call(yAxis);
+      const g = svg
+        .append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    svg
-      .selectAll(".bar")
-      .data(data)
-      .join("rect")
-      .attr("class", "bar")
-      .attr("x", (value, index) => xScale(index)) // index xScale 통해 스케일링한 값을 x좌표로
-      .attr("y", yScale)
-      .attr("width", xScale.bandwidth()) // xScale의 bandwidth만큼 width 설정
-      .attr("height", (value, index) => 150 - yScale(value)); // svg 아래에 붙이기 위해서 svg viewBox 고려해 변경
+      g.append("g").call(d3.axisLeft(yScale));
+      g.append("g")
+        .call(d3.axisBottom(xScale))
+        .attr("transform", `translate(0, ${innerHeight})`);
+
+      const xValue = (d) => d.score;
+      const yValue = (d) => d.country;
+
+      g.selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("y", (d) => yScale(yValue(d)))
+        .attr("width", (d) => xScale(xValue(d)))
+        .attr("height", yScale.bandwidth());
+    }
   }, [data]);
 
   return (
-    <div>
-      <svg ref={svgRef}>
-        <g className="x-axis" />
-        <g className="y-axis" />
-      </svg>
+    <div id="chart">
+      <svg id="svg-container" width="500" height="400" />
     </div>
   );
 }
-
-export default Chart;

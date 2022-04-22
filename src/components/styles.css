@@ -1,0 +1,26 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+}
+
+rect {
+  fill: steelblue;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 1.2em;
+}
+
+circle {
+  fill: violet;
+}
+
+.tick text {
+  font-size: 1.2em;
+  fill: #635f5d;
+}
+
+.tick line {
+  stroke: none;
+}
