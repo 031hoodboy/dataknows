@@ -3,8 +3,47 @@ import styled from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
 import Near from "../components/Near";
+import Chart from "../components/Chart";
 
 const Home = () => {
+  const edus = [
+    {
+      id: 1,
+      title: "유치원",
+      number: 12,
+    },
+    {
+      id: 2,
+      title: "어린이집",
+      number: 12,
+    },
+    {
+      id: 3,
+      title: "초등학교",
+      number: 12,
+    },
+    {
+      id: 4,
+      title: "중학교",
+      number: 12,
+    },
+    {
+      id: 5,
+      title: "고등학교",
+      number: 12,
+    },
+    {
+      id: 6,
+      title: "도서관",
+      number: 12,
+    },
+    {
+      id: 7,
+      title: "학원가",
+      number: 12,
+    },
+  ];
+
   return (
     <PageBlock>
       <SafeArea />
@@ -15,7 +54,7 @@ const Home = () => {
             거주점수
             <Qmark src={require(`../assets/qmark.png`)} />
           </TitleWrapper>
-          <Chart src={require(`../assets/chart.png`)} />
+          <Chart />
         </ResidenceScoreBlock>
       </ResidenceScoreWrapper>
       <ResidenceSettingWrapper>
@@ -41,6 +80,56 @@ const Home = () => {
           주변에 <Bold>교육이</Bold> 가장 많아요
         </BlockTitle>
         <Chart3 src={require(`../assets/chart3.png`)} />
+        <CategoryBlock>
+          <CategoryTitleWrapper>
+            <JustifyWrapper>
+              <EduIcon />
+              <CategoryTitle>교육</CategoryTitle>
+              <Evaluation>좋음</Evaluation>
+            </JustifyWrapper>
+            <JustifyWrapper>
+              <CategoryNum>23개</CategoryNum>
+              <CategoryArrow src={require(`../assets/upcheck.png`)} />
+            </JustifyWrapper>
+          </CategoryTitleWrapper>
+          <CategoryDetailBlock>
+            {edus.map((edu) => (
+              <>
+                {edu.id % 2 === 0 ? (
+                  <LeftEduContents>
+                    {edu.title} {edu.number}개
+                  </LeftEduContents>
+                ) : (
+                  <RightEduContents>
+                    {edu.title} {edu.number}개
+                  </RightEduContents>
+                )}
+              </>
+            ))}
+          </CategoryDetailBlock>
+          <CategoryTitleWrapper>
+            <JustifyWrapper>
+              <TansportationIcon />
+              <CategoryTitle>교통</CategoryTitle>
+              <Evaluation>매우좋음</Evaluation>
+            </JustifyWrapper>
+            <JustifyWrapper>
+              <CategoryNum>23개</CategoryNum>
+              <CategoryArrow src={require(`../assets/check.png`)} />
+            </JustifyWrapper>
+          </CategoryTitleWrapper>
+          <CategoryTitleWrapper>
+            <JustifyWrapper>
+              <LifeIcon />
+              <CategoryTitle>생활</CategoryTitle>
+              <Evaluation>매우좋음</Evaluation>
+            </JustifyWrapper>
+            <JustifyWrapper>
+              <CategoryNum>23개</CategoryNum>
+              <CategoryArrow src={require(`../assets/check.png`)} />
+            </JustifyWrapper>
+          </CategoryTitleWrapper>
+        </CategoryBlock>
       </NearWrapper>
       <Devider />
       <DataSourcesBlock>
@@ -132,9 +221,9 @@ const Qmark = styled.img`
   margin-bottom: 3px;
 `;
 
-const Chart = styled.img`
-  width: 100%;
-`;
+// const Chart = styled.img`
+//   width: 100%;
+// `;
 
 const ResidenceSettingWrapper = styled(ResidenceScoreWrapper)`
   background-color: #f6f7f8;
@@ -214,6 +303,7 @@ const Devider = styled.div`
 const Chart3 = styled.img`
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 17px;
 `;
 
 const DataSourcesBlock = styled.div`
@@ -271,6 +361,81 @@ const BlueArrow = styled.img`
   width: 4px;
   height: 8px;
   margin-left: 8px;
+`;
+
+const CategoryBlock = styled.div`
+  width: calc(100% - 10px);
+  margin: 0px 5px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CategoryTitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  margin: 17px 0px;
+`;
+
+const EduIcon = styled.div`
+  width: 16px;
+  height: 16px;
+  background: #ff994f;
+  border-radius: 4px;
+`;
+
+const TansportationIcon = styled(EduIcon)`
+  background: #397bb8;
+`;
+const LifeIcon = styled(EduIcon)`
+  background: #39b88a;
+`;
+const CategoryTitle = styled.div`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  color: #2a2f37;
+  margin-left: 6px;
+`;
+
+const Evaluation = styled.div`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #8b97aa;
+  margin-left: 4px;
+`;
+
+const CategoryNum = styled.div``;
+
+const CategoryArrow = styled.img`
+  width: 12px;
+  height: 6px;
+  margin-left: 12px;
+`;
+
+const CategoryDetailBlock = styled.div`
+  width: (100% - 4px);
+  margin: 0px 2px 17px 2px;
+  padding: 16px 22px;
+  background: #f7f8f9;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const LeftEduContents = styled.div`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+  color: #6d7787;
+  width: 75px;
+`;
+
+const RightEduContents = styled(LeftEduContents)`
+  margin-right: 93px;
 `;
 
 export default Home;
