@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
@@ -8,6 +8,8 @@ import CategoryDetail from "../components/CategoryDetail";
 import PieChart from "../components/PieChart";
 import ChartMessageIcon from "../assets/chatbox.png";
 const Home = () => {
+  const data = 80;
+
   return (
     <PageBlock>
       <SafeArea />
@@ -20,12 +22,12 @@ const Home = () => {
           </TitleWrapper>
           <ChartWrapper>
             <ChartBackground>
-              <ChartAverage />
-              <ChartDotWrapper>
+              <ChartDotWrapper style={{ left: `calc(${data}% - 8.5%)` }}>
                 <ChartMessage>매우좋음</ChartMessage>
                 <ChartDot />
                 <MyScore>80점</MyScore>
               </ChartDotWrapper>
+              <ChartAverage />
             </ChartBackground>
             <ColumnWrapper>
               <ChartMin>
@@ -404,7 +406,7 @@ const ChartBackground = styled.div`
   background: linear-gradient(-90deg, #088cff 1.85%, #cbe7ff 100%);
   height: 8px;
   border-radius: 40px;
-  position: inherit;
+  position: relative;
   margin-top: 43px;
 `;
 
@@ -426,7 +428,6 @@ const ChartDotWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 70%;
   margin-bottom: 15px;
 `;
 
@@ -454,13 +455,8 @@ const MyScore = styled.div`
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
-  /* identical to box height, or 167% */
-
   text-align: center;
   letter-spacing: -0.4px;
-
-  /* gray01 */
-
   color: #333a46;
   margin-top: 4px;
 `;
