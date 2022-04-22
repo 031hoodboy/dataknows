@@ -1,8 +1,9 @@
 import React from "react";
 import * as d3 from "d3";
 import "./styles.css";
+import styled from "styled-components";
 
-const margin = { top: 20, right: 20, bottom: 20, left: 30 };
+const margin = { top: 4, right: 4, bottom: 8, left: 4 };
 
 const ScatterChart = () => {
   const data = [
@@ -23,7 +24,7 @@ const ScatterChart = () => {
       const xScale = d3
         .scaleLinear()
         .domain([20, 90])
-        .range([10, innerWidth])
+        .range([innerHeight, innerWidth])
         .nice();
 
       const yScale = d3.scalePoint();
@@ -49,16 +50,24 @@ const ScatterChart = () => {
         .enter()
         .append("circle")
         .attr("cx", (d) => xScale(xValue(d)))
-        .attr("r", 10);
+        .attr("r", 2);
       g.selectAll(".domain").remove();
     }
   }, [data]);
 
   return (
     <div id="chart">
-      <svg id="svg-container" width="300" height="50" />
+      <Asd>
+        <svg id="svg-container" width="300" height="16" />
+      </Asd>
     </div>
   );
 };
+
+const Asd = styled.div`
+  background: linear-gradient(90deg, #cbe7ff 1.85%, #088cff 100%);
+  border-radius: 40px;
+  height: 8px;
+`;
 
 export default ScatterChart;

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
 import Near from "../components/Near";
-import Chart from "../components/ScatterChart";
+// import Chart from "../components/ScatterChart";
 import CategoryDetail from "../components/CategoryDetail";
 import PieChart from "../components/PieChart";
-
+import ChartMessageIcon from "../assets/chatbox.png";
 const Home = () => {
   return (
     <PageBlock>
@@ -18,7 +18,26 @@ const Home = () => {
             거주점수
             <Qmark src={require(`../assets/qmark.png`)} />
           </TitleWrapper>
-          <Chart />
+          <ChartWrapper>
+            <ChartBackground>
+              <ChartAverage />
+              <ChartDotWrapper>
+                <ChartMessage>매우좋음</ChartMessage>
+                <ChartDot />
+                <MyScore>80점</MyScore>
+              </ChartDotWrapper>
+            </ChartBackground>
+            <ColumnWrapper>
+              <ChartMin>
+                동네 최저점 <br />
+                <ColumnBold>20점</ColumnBold>
+              </ChartMin>
+              <ChartAvg>평균</ChartAvg>
+              <ChartMax>
+                최고점 <br /> <ColumnBold>90점</ColumnBold>
+              </ChartMax>
+            </ColumnWrapper>
+          </ChartWrapper>
         </ResidenceScoreBlock>
       </ResidenceScoreWrapper>
       <ResidenceSettingWrapper>
@@ -363,6 +382,107 @@ const CategoryArrow = styled.img`
   width: 12px;
   height: 6px;
   margin-left: 12px;
+`;
+
+const ChartWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.6px;
+  color: #6d7787;
+  position: inherit;
+`;
+
+const ChartBackground = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-90deg, #088cff 1.85%, #cbe7ff 100%);
+  height: 8px;
+  border-radius: 40px;
+  position: inherit;
+  margin-top: 43px;
+`;
+
+const ColumnWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: inherit;
+  margin-top: 2px;
+`;
+
+const ChartAverage = styled.div`
+  border-left: 1px solid #8b97aa;
+  height: 11px;
+`;
+
+const ChartDotWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 70%;
+  margin-bottom: 15px;
+`;
+
+const ChartDot = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #fff;
+`;
+
+const ChartMessage = styled.div`
+  width: 43px;
+  height: 27px;
+  background-image: url(${ChartMessageIcon});
+  background-position: center;
+  background-size: cover;
+  padding: 4px 8px;
+  color: #fff;
+  line-height: 20px;
+  font-size: 12px;
+  margin-bottom: 4px;
+`;
+
+const MyScore = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  text-align: center;
+  letter-spacing: -0.4px;
+
+  /* gray01 */
+
+  color: #333a46;
+  margin-top: 4px;
+`;
+
+const ChartMin = styled.div`
+  text-align: start;
+  width: 50px;
+`;
+
+const ColumnBold = styled.span`
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: left;
+`;
+
+const ChartAvg = styled.div``;
+
+const ChartMax = styled.div`
+  width: 50px;
+  text-align: end;
 `;
 
 export default Home;
