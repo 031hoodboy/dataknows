@@ -25,8 +25,7 @@ const Pie = (props) => {
   return (
     <PieWrapper>
       <ShopIcon src={require(`../assets/cart.png`)} />
-
-      <SVG width={props.width} height={props.height}>
+      <svg width={props.width} height={props.height}>
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
           {data.map((d, i) => (
             <Arc
@@ -38,18 +37,13 @@ const Pie = (props) => {
             />
           ))}
         </g>
-      </SVG>
+      </svg>
     </PieWrapper>
   );
 };
 
 const PieWrapper = styled.div`
   display: flex;
-`;
-
-const SVG = styled.svg`
-  position: relative;
-  display: inline-block;
 `;
 
 const ShopIcon = styled.img`
