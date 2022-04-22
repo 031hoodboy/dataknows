@@ -1,5 +1,6 @@
 import React from "react";
 import * as d3 from "d3";
+import styled from "styled-components";
 
 const Arc = ({ data, index, createArc, colors, format }) => (
   <g key={index} className="arc">
@@ -22,20 +23,41 @@ const Pie = (props) => {
   const data = createPie(props.data);
 
   return (
-    <svg width={props.width} height={props.height}>
-      <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
-        {data.map((d, i) => (
-          <Arc
-            key={i}
-            index={i}
-            data={d}
-            createArc={createArc}
-            colors={colors}
-          />
-        ))}
-      </g>
-    </svg>
+    <PieWrapper>
+      <ShopIcon src={require(`../assets/cart.png`)} />
+
+      <SVG width={props.width} height={props.height}>
+        <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
+          {data.map((d, i) => (
+            <Arc
+              key={i}
+              index={i}
+              data={d}
+              createArc={createArc}
+              colors={colors}
+            />
+          ))}
+        </g>
+      </SVG>
+    </PieWrapper>
   );
 };
+
+const PieWrapper = styled.div`
+  display: flex;
+`;
+
+const SVG = styled.svg`
+  position: relative;
+  display: inline-block;
+`;
+
+const ShopIcon = styled.img`
+  width: 16px;
+  height: 15px;
+  position: absolute;
+
+  margin: 17.5px 17px;
+`;
 
 export default Pie;

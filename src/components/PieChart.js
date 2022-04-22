@@ -12,7 +12,7 @@ function PieChart() {
   ];
 
   return (
-    <Pie data={data} width={50} height={50} innerRadius={16} outerRadius={25} />
+    <Pie data={data} width={50} height={50} innerRadius={18} outerRadius={25} />
   );
 }
 

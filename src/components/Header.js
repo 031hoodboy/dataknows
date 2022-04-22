@@ -44,6 +44,7 @@ const HeaderWrapper = styled.div`
   flex-direction: column;
   position: sticky;
   top: 0;
+  z-index: 100;
 `;
 
 const HeaderBlock = styled.div`
