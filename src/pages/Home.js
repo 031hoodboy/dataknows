@@ -5,11 +5,10 @@ import Header from "../components/Header";
 import Near from "../components/Near";
 // import Chart from "../components/ScatterChart";
 import CategoryDetail from "../components/CategoryDetail";
+import Chart from "../components/Chart";
 import PieChart from "../components/PieChart";
-import ChartMessageIcon from "../assets/chatbox.png";
-const Home = () => {
-  const data = 80;
 
+const Home = () => {
   return (
     <PageBlock>
       <SafeArea />
@@ -21,14 +20,7 @@ const Home = () => {
             <Qmark src={require(`../assets/qmark.png`)} />
           </TitleWrapper>
           <ChartWrapper>
-            <ChartBackground>
-              <ChartDotWrapper style={{ left: `calc(${data}% - 8.5%)` }}>
-                <ChartMessage>매우좋음</ChartMessage>
-                <ChartDot />
-                <MyScore>80점</MyScore>
-              </ChartDotWrapper>
-              <ChartAverage />
-            </ChartBackground>
+            <Chart />
             <ColumnWrapper>
               <ChartMin>
                 동네 최저점 <br />
@@ -215,13 +207,6 @@ const JustifyWrapper = styled.div`
   align-items: center;
 `;
 
-const ScoreChart = styled.div`
-  width: 37px;
-  height: 37px;
-  border-radius: 100%;
-  border: 6px solid #ffcc15;
-`;
-
 const ContentWrapper = styled.div`
   color: #f6f7f7;
   letter-spacing: -0.4px;
@@ -396,18 +381,7 @@ const ChartWrapper = styled.div`
   line-height: 15px;
   letter-spacing: -0.6px;
   color: #6d7787;
-  position: inherit;
-`;
-
-const ChartBackground = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(-90deg, #088cff 1.85%, #cbe7ff 100%);
-  height: 8px;
-  border-radius: 40px;
-  position: relative;
-  margin-top: 43px;
+  position: relative; ;
 `;
 
 const ColumnWrapper = styled.div`
@@ -415,50 +389,6 @@ const ColumnWrapper = styled.div`
   justify-content: space-between;
   position: inherit;
   margin-top: 2px;
-`;
-
-const ChartAverage = styled.div`
-  border-left: 1px solid #8b97aa;
-  height: 11px;
-`;
-
-const ChartDotWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  margin-bottom: 15px;
-`;
-
-const ChartDot = styled.div`
-  width: 4px;
-  height: 4px;
-  border-radius: 4px;
-  background-color: #fff;
-`;
-
-const ChartMessage = styled.div`
-  width: 43px;
-  height: 27px;
-  background-image: url(${ChartMessageIcon});
-  background-position: center;
-  background-size: cover;
-  padding: 4px 8px;
-  color: #fff;
-  line-height: 20px;
-  font-size: 12px;
-  margin-bottom: 4px;
-`;
-
-const MyScore = styled.div`
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  letter-spacing: -0.4px;
-  color: #333a46;
-  margin-top: 4px;
 `;
 
 const ChartMin = styled.div`
