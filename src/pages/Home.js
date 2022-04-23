@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
 import Near from "../components/Near";
-import CategoryDetail from "../components/CategoryDetail";
+import CategoryDetail from "../components/CategoryChart";
 import Chart from "../components/Chart";
 import PieChart from "../components/PieChart";
 // import ChartData from "../components/ChartData";
