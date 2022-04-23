@@ -8,7 +8,7 @@ const CategoryDetail = () => {
       title: "교육",
       evaluate: "좋음",
       iconColor: "#ff994f",
-      contnetsNum: "84",
+      contnetsNum: 2,
       contnets: [
         {
           id: 1,
@@ -52,7 +52,7 @@ const CategoryDetail = () => {
       title: "교통",
       evaluate: "매우좋음",
       iconColor: "#397bb8",
-      contnetsNum: "0",
+      contnetsNum: 3,
       contnets: [],
     },
     {
@@ -60,7 +60,7 @@ const CategoryDetail = () => {
       title: "생활",
       evaluate: "좋음",
       iconColor: "#39b88a",
-      contnetsNum: "0",
+      contnetsNum: 1,
       contnets: [],
     },
   ];
@@ -72,6 +72,16 @@ const CategoryDetail = () => {
 
   return (
     <>
+      <Chart>
+        {datas.map((data) => (
+          <ChartContents
+            style={{
+              width: `${data.contnetsNum * 100}%`,
+              backgroundColor: `${data.iconColor}`,
+            }}
+          />
+        ))}
+      </Chart>
       {datas.map((data) => (
         <CategoryBlock>
           <CategoryTitleWrapper key={data.id}>
@@ -113,6 +123,19 @@ const CategoryDetail = () => {
 const JustifyWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const Chart = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  gap: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+const ChartContents = styled.div`
+  height: 24px;
 `;
 
 const CategoryBlock = styled.div`
