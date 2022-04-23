@@ -1,14 +1,26 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
 import SafeArea from "react-safe-area-component";
 import Header from "../components/Header";
 import Near from "../components/Near";
-// import Chart from "../components/ScatterChart";
 import CategoryDetail from "../components/CategoryDetail";
 import Chart from "../components/Chart";
 import PieChart from "../components/PieChart";
+// import ChartData from "../components/ChartData";
 
 const Home = () => {
+  // const [sum, setSum] = useState(0);
+
+  // useEffect(() => {
+  //   var tmp = 0;
+  //   datas.map((data) => {
+  //     data.contnets.map((content) => {
+  //       tmp += content.number;
+  //     });
+  //   });
+  //   setSum(tmp);
+  // });
+
   return (
     <PageBlock>
       <SafeArea />
@@ -56,43 +68,7 @@ const Home = () => {
         <BlockTitle>
           주변에 <Bold>교육이</Bold> 가장 많아요
         </BlockTitle>
-        <Chart3 src={require(`../assets/chart3.png`)} />
-        <CategoryBlock>
-          <CategoryTitleWrapper>
-            <JustifyWrapper>
-              <EduIcon />
-              <CategoryTitle>교육</CategoryTitle>
-              <Evaluation>좋음</Evaluation>
-            </JustifyWrapper>
-            <JustifyWrapper>
-              <CategoryNum>23개</CategoryNum>
-              <CategoryArrow src={require(`../assets/upcheck.png`)} />
-            </JustifyWrapper>
-          </CategoryTitleWrapper>
-          <CategoryDetail />
-          <CategoryTitleWrapper>
-            <JustifyWrapper>
-              <TansportationIcon />
-              <CategoryTitle>교통</CategoryTitle>
-              <Evaluation>매우좋음</Evaluation>
-            </JustifyWrapper>
-            <JustifyWrapper>
-              <CategoryNum>23개</CategoryNum>
-              <CategoryArrow src={require(`../assets/check.png`)} />
-            </JustifyWrapper>
-          </CategoryTitleWrapper>
-          <CategoryTitleWrapper>
-            <JustifyWrapper>
-              <LifeIcon />
-              <CategoryTitle>생활</CategoryTitle>
-              <Evaluation>매우좋음</Evaluation>
-            </JustifyWrapper>
-            <JustifyWrapper>
-              <CategoryNum>23개</CategoryNum>
-              <CategoryArrow src={require(`../assets/check.png`)} />
-            </JustifyWrapper>
-          </CategoryTitleWrapper>
-        </CategoryBlock>
+        <CategoryDetail />
       </NearWrapper>
       <Devider />
       <DataSourcesBlock>
@@ -143,6 +119,11 @@ const Home = () => {
     </PageBlock>
   );
 };
+
+const JustifyWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const PageBlock = styled.div`
   width: 100%;
@@ -200,11 +181,6 @@ const ResidenceSettingBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 13px 18px 14px 18px;
-`;
-
-const JustifyWrapper = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 const ContentWrapper = styled.div`
@@ -317,58 +293,6 @@ const BlueArrow = styled.img`
   width: 4px;
   height: 8px;
   margin-left: 8px;
-`;
-
-const CategoryBlock = styled.div`
-  width: calc(100% - 10px);
-  margin: 0px 5px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const CategoryTitleWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  margin: 17px 0px;
-`;
-
-const EduIcon = styled.div`
-  width: 16px;
-  height: 16px;
-  background: #ff994f;
-  border-radius: 4px;
-`;
-
-const TansportationIcon = styled(EduIcon)`
-  background: #397bb8;
-`;
-const LifeIcon = styled(EduIcon)`
-  background: #39b88a;
-`;
-const CategoryTitle = styled.div`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
-  color: #2a2f37;
-  margin-left: 6px;
-`;
-
-const Evaluation = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 28px;
-  color: #8b97aa;
-  margin-left: 4px;
-`;
-
-const CategoryNum = styled.div``;
-
-const CategoryArrow = styled.img`
-  width: 12px;
-  height: 6px;
-  margin-left: 12px;
 `;
 
 const ChartWrapper = styled.div`
