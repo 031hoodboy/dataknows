@@ -64,7 +64,7 @@ const LeftEduContents = styled.div`
   line-height: 22px;
   letter-spacing: -0.4px;
   color: #6d7787;
-  width: 75px;
+  width: 83px;
 `;
 
 const RightEduContents = styled(LeftEduContents)`
