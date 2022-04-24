@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import CategoryDetail from "./CategoryDetail";
 
@@ -66,16 +66,6 @@ const CategoryChart = () => {
     },
   ];
 
-  const [open, setOpen] = useState([]);
-  const onOpen = () => {
-    setOpen(!open);
-  };
-
-  const onToggle = (id) => {
-    setOpen(datas.filter((data) => data.id === id));
-    return id;
-  };
-
   return (
     <>
       <Chart>
@@ -90,16 +80,7 @@ const CategoryChart = () => {
         ))}
       </Chart>
       {datas.map((data) => (
-        <CategoryDetail
-          key={data.id}
-          idx={data.id}
-          datas={datas}
-          data={data}
-          open={open}
-          setOpen={setOpen}
-          onToggle={onToggle}
-          onOpen={onOpen}
-        />
+        <CategoryDetail data={data} />
       ))}
     </>
   );
