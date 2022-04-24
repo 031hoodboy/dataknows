@@ -7590,6 +7590,11 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
+"react-accordion-library@^1.0.4":
+  "integrity" "sha512-ZHyETJU3r039o+MMOZ0aH1lLGHEoQQSURurN1U5HZNs5f2s7NWpTQpMxVxZujh8h2nzD4ps/ixzq4dNeYlgEDA=="
+  "resolved" "https://registry.npmjs.org/react-accordion-library/-/react-accordion-library-1.0.4.tgz"
+  "version" "1.0.4"
+
 "react-app-polyfill@^3.0.0":
   "integrity" "sha512-sZ41cxiU5llIB003yxxQBYrARBqe0repqPTTYBTmMqTz9szeBbE37BehCE891NZsmdZqqP+xWKdT3eo3vOzN8w=="
   "resolved" "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-3.0.0.tgz"

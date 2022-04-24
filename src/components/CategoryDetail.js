@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
-const CategoryDetail = ({ datas, data, open, onToggle, onOpen }) => {
+const CategoryDetail = ({ data }) => {
+  const [open, setOpen] = useState(false);
+  const onOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <CategoryBlock key={data.id}>
       <CategoryTitleWrapper>
@@ -14,10 +19,11 @@ const CategoryDetail = ({ datas, data, open, onToggle, onOpen }) => {
         <JustifyWrapper>
           <CategoryNum>{data.contnetsNum}개</CategoryNum>
           <CategoryArrow
-            idx={data.id}
             src={require(`../assets/check.png`)}
-            onClick={onOpen}
+            // onClick={onOpen}
+            // open={open}
             open={open}
+            onClick={onOpen}
           />
         </JustifyWrapper>
       </CategoryTitleWrapper>
@@ -71,19 +77,6 @@ const RightEduContents = styled(LeftEduContents)`
 const JustifyWrapper = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const Chart = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 18px;
-  gap: 2px;
-  border-radius: 8px;
-  overflow: hidden;
-`;
-const ChartContents = styled.div`
-  height: 24px;
 `;
 
 const CategoryBlock = styled.div`

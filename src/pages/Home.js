@@ -6,21 +6,8 @@ import Near from "../components/Near";
 import CategoryDetail from "../components/CategoryChart";
 import Chart from "../components/Chart";
 import PieChart from "../components/PieChart";
-// import ChartData from "../components/ChartData";
 
 const Home = () => {
-  // const [sum, setSum] = useState(0);
-
-  // useEffect(() => {
-  //   var tmp = 0;
-  //   datas.map((data) => {
-  //     data.contnets.map((content) => {
-  //       tmp += content.number;
-  //     });
-  //   });
-  //   setSum(tmp);
-  // });
-
   return (
     <PageBlock>
       <SafeArea />

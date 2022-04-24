@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import CategoryDetail from "./CategoryDetail";
 
 const CategoryChart = () => {
@@ -89,7 +89,6 @@ const CategoryChart = () => {
           />
         ))}
       </Chart>
-
       {datas.map((data) => (
         <CategoryDetail
           key={data.id}
@@ -97,6 +96,7 @@ const CategoryChart = () => {
           datas={datas}
           data={data}
           open={open}
+          setOpen={setOpen}
           onToggle={onToggle}
           onOpen={onOpen}
         />
