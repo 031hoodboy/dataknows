@@ -140,6 +140,9 @@ const CategoryChart = () => {
 
   return (
     <>
+      <BlockTitle>
+        주변에 <Bold>교육이</Bold> 가장 많아요
+      </BlockTitle>
       <Chart>
         {datas.map((data) => (
           <ChartContents
@@ -157,6 +160,17 @@ const CategoryChart = () => {
     </>
   );
 };
+
+const BlockTitle = styled.div`
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  color: #2a2f37;
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
+`;
 
 const Chart = styled.div`
   width: 100%;

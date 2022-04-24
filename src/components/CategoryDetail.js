@@ -28,13 +28,13 @@ const CategoryDetail = ({ data }) => {
         {data.contnets.map((contnet) => (
           <>
             {contnet.id % 2 === 0 ? (
-              <LeftEduContents>
+              <LeftContents>
                 {contnet.title} {contnet.number}개
-              </LeftEduContents>
+              </LeftContents>
             ) : (
-              <RightEduContents>
+              <RightContents>
                 {contnet.title} {contnet.number}개
-              </RightEduContents>
+              </RightContents>
             )}
           </>
         ))}
@@ -58,7 +58,7 @@ const CategoryDetailBlock = styled.div`
     `}
 `;
 
-const LeftEduContents = styled.div`
+const LeftContents = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
@@ -67,7 +67,7 @@ const LeftEduContents = styled.div`
   width: 83px;
 `;
 
-const RightEduContents = styled(LeftEduContents)`
+const RightContents = styled(LeftContents)`
   margin-right: 93px;
 `;
 

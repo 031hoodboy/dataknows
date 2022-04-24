@@ -18,16 +18,6 @@ const Home = () => {
           </TitleWrapper>
           <ChartWrapper>
             <Chart />
-            <ColumnWrapper>
-              <ChartMin>
-                동네 최저점 <br />
-                <ColumnBold>20점</ColumnBold>
-              </ChartMin>
-              <ChartAvg>평균</ChartAvg>
-              <ChartMax>
-                최고점 <br /> <ColumnBold>90점</ColumnBold>
-              </ChartMax>
-            </ColumnWrapper>
           </ChartWrapper>
         </ResidenceScoreBlock>
       </ResidenceScoreWrapper>
@@ -50,9 +40,6 @@ const Home = () => {
       <Near />
       <Devider />
       <NearWrapper>
-        <BlockTitle>
-          주변에 <Bold>교육이</Bold> 가장 많아요
-        </BlockTitle>
         <CategoryDetail />
       </NearWrapper>
       <Devider />
@@ -77,30 +64,7 @@ const Home = () => {
           </CorrectJustifyWrapper>
         </CorrectBlock>
       </NearWrapper>
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
-      <Devider />
+      <BottomDevider />
     </PageBlock>
   );
 };
@@ -196,17 +160,6 @@ const NearWrapper = styled(ResidenceScoreWrapper)`
   align-items: flex-start;
 `;
 
-const BlockTitle = styled.div`
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.4px;
-  color: #2a2f37;
-`;
-
-const Bold = styled.span`
-  font-weight: 700;
-`;
-
 const Devider = styled.div`
   width: 100%;
   height: 10px;
@@ -285,29 +238,8 @@ const ChartWrapper = styled.div`
   position: relative;
 `;
 
-const ColumnWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: inherit;
-  margin-top: 2px;
-`;
-
-const ChartMin = styled.div`
-  width: 50px;
-`;
-
-const ColumnBold = styled.span`
-  font-family: Noto Sans KR;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 15px;
-`;
-
-const ChartAvg = styled.div``;
-
-const ChartMax = styled.div`
-  width: 50px;
-  text-align: end;
+const BottomDevider = styled(Devider)`
+  height: 337px;
 `;
 
 export default Home;

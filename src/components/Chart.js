@@ -6,14 +6,26 @@ const Chart = () => {
   const data = 80;
 
   return (
-    <ChartBackground>
-      <ChartDotWrapper style={{ left: `calc(${data}% - 30px)` }}>
-        <ChartMessage>매우좋음</ChartMessage>
-        <ChartDot />
-        <MyScore>{data}점</MyScore>
-      </ChartDotWrapper>
-      <ChartAverage />
-    </ChartBackground>
+    <>
+      <ChartBackground>
+        <ChartDotWrapper style={{ left: `calc(${data}% - 30px)` }}>
+          <ChartMessage>매우좋음</ChartMessage>
+          <ChartDot />
+          <MyScore>{data}점</MyScore>
+        </ChartDotWrapper>
+        <ChartAverage />
+      </ChartBackground>
+      <ColumnWrapper>
+        <ChartMin>
+          동네 최저점 <br />
+          <ColumnBold>20점</ColumnBold>
+        </ChartMin>
+        <ChartAvg>평균</ChartAvg>
+        <ChartMax>
+          최고점 <br /> <ColumnBold>90점</ColumnBold>
+        </ChartMax>
+      </ColumnWrapper>
+    </>
   );
 };
 
@@ -70,6 +82,31 @@ const MyScore = styled.div`
   letter-spacing: -0.4px;
   color: #333a46;
   margin-top: 4px;
+`;
+
+const ColumnWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: inherit;
+  margin-top: 2px;
+`;
+
+const ChartMin = styled.div`
+  width: 50px;
+`;
+
+const ColumnBold = styled.span`
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+`;
+
+const ChartAvg = styled.div``;
+
+const ChartMax = styled.div`
+  width: 50px;
+  text-align: end;
 `;
 
 export default Chart;
