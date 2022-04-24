@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styled, { css } from "styled-components";
-import SafeArea from "react-safe-area-component";
+import React from "react";
+import styled from "styled-components";
 import Header from "../components/Header";
 import Near from "../components/Near";
 import CategoryDetail from "../components/CategoryChart";
@@ -10,7 +9,6 @@ import PieChart from "../components/PieChart";
 const Home = () => {
   return (
     <PageBlock>
-      <SafeArea />
       <Header />
       <ResidenceScoreWrapper>
         <ResidenceScoreBlock>
@@ -152,10 +150,6 @@ const Qmark = styled.img`
   margin-bottom: 3px;
 `;
 
-// const Chart = styled.img`
-//   width: 100%;
-// `;
-
 const ResidenceSettingWrapper = styled(ResidenceScoreWrapper)`
   background-color: #f6f7f8;
 `;
@@ -219,12 +213,6 @@ const Devider = styled.div`
   background-color: #f6f7f8;
 `;
 
-const Chart3 = styled.img`
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 17px;
-`;
-
 const DataSourcesBlock = styled.div`
   display: flex;
   align-items: center;
@@ -249,10 +237,12 @@ const CorrectBlock = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const CorrectJustifyWrapper = styled(JustifyWrapper)`
   flex-direction: column;
   align-items: flex-start;
 `;
+
 const CorrectContent = styled.div`
   color: #333a46;
   max-width: 211px;
@@ -292,7 +282,7 @@ const ChartWrapper = styled.div`
   line-height: 15px;
   letter-spacing: -0.6px;
   color: #6d7787;
-  position: relative; ;
+  position: relative;
 `;
 
 const ColumnWrapper = styled.div`
@@ -303,7 +293,6 @@ const ColumnWrapper = styled.div`
 `;
 
 const ChartMin = styled.div`
-  text-align: start;
   width: 50px;
 `;
 
@@ -312,7 +301,6 @@ const ColumnBold = styled.span`
   font-size: 10px;
   font-weight: 500;
   line-height: 15px;
-  text-align: left;
 `;
 
 const ChartAvg = styled.div``;

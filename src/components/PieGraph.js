@@ -17,9 +17,10 @@ const Pie = (props) => {
   const createArc = d3
     .arc()
     .innerRadius(props.innerRadius)
-    .outerRadius(props.outerRadius);
+    .outerRadius(props.outerRadius)
+    .cornerRadius(5);
 
-  const colors = d3.scaleOrdinal(d3.schemeSet3);
+  const colors = d3.scaleOrdinal([`#FFCC15`, `#85ACF3`]);
   const data = createPie(props.data);
 
   return (

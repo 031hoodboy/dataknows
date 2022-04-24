@@ -13,15 +13,12 @@ const CategoryDetail = ({ data }) => {
         <JustifyWrapper>
           <CategoryIcon style={{ background: `${data.iconColor}` }} />
           <CategoryTitle>{data.title}</CategoryTitle>
-
           <Evaluation>{data.evaluate}</Evaluation>
         </JustifyWrapper>
         <JustifyWrapper>
           <CategoryNum>{data.contnetsNum}개</CategoryNum>
           <CategoryArrow
             src={require(`../assets/check.png`)}
-            // onClick={onOpen}
-            // open={open}
             open={open}
             onClick={onOpen}
           />

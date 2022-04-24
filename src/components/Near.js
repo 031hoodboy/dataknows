@@ -73,14 +73,11 @@ const Near = () => {
             <JustifyWrapper>
               <DataIcon src={require(`../assets/${data.icon}.png`)} />
               <DataTitle>{data.title}</DataTitle>
-              {/* {Object.values(data.stations)} */}
-              <>
-                {data.stations.map((station) => (
-                  <IconWrapper>
-                    <StationIcon src={require(`../assets/${station}.png`)} />
-                  </IconWrapper>
-                ))}
-              </>
+              {data.stations.map((station) => (
+                <IconWrapper>
+                  <StationIcon src={require(`../assets/${station}.png`)} />
+                </IconWrapper>
+              ))}
             </JustifyWrapper>
             <JustifyWrapper>
               <DataDistance>{data.distance}</DataDistance>
